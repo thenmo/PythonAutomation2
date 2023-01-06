@@ -1,9 +1,12 @@
 import random
 from datetime import datetime
 
-now = datetime.noe
-
+# datetime object containing current date and time
+now = datetime.now()
+ 
+# dd/mm/YY H:M:S
 dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+
 curr_time =("date and time =", dt_string)
 
 with open("useless_info.txt", "a+") as file:    
