@@ -1,0 +1,38 @@
+# run a python program that creates a new file and stores a random number in it
+
+name: run random.py
+
+on:
+  schedule:
+    - cron: '* * * * *'
+
+jobs:
+  setup:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: checkout current repo
+        uses: actions/checkout@v3
+      
+      - name: python setup
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      
+      - name: install libraries in requirements.txt
+        run: |
+            pip install -r requirements.txt
+      
+      - name: execute python script
+        run: python3 main.py
+
+      - name: commit files
+        run: |
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add -A
+            git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
+      - name: push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
