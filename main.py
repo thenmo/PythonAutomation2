@@ -13,6 +13,6 @@ with open("useless_info.txt", "a+") as file:
     # write a random number between 1 and 20 000
     # wrtie the current date and time
     file.write(str(random.randint(0,20000)) + "\n")
-    file.write((curr_time) + "\n")
+    file.write(str(curr_time) + "\n")
 
 
