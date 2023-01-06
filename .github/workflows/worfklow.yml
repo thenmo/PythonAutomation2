@@ -1,6 +1,6 @@
 # run a python program that creates a new file and stores a random number in it
 
-name: run random.py
+name: run main.py
 
 on:
   schedule:
