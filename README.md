@@ -7,6 +7,6 @@
    ## 2. This python script does the following:
    ### 2.1. Creates a file called 'useless_info.txt' if such doesn't exists
    ### 2.2. Opens the file and writes a random value inside of it
-   ### 2.3. Also write the current date and time
+   ### 2.3. Writes the current date and time
     
    ## 3. Commits the changes to Github, all done through Github Actions
