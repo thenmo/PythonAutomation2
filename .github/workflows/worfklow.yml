@@ -13,11 +13,6 @@ jobs:
       - name: checkout current repo
         uses: actions/checkout@v3
       
-      - name: python setup
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
-      
       - name: install libraries in requirements.txt
         run: |
             pip install -r requirements.txt
