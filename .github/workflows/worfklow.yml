@@ -10,7 +10,7 @@ jobs:
   setup:
     runs-on: ubuntu-22.04
     container:
-      image: broadinstitute/python-requests
+      image: python:3
     steps:
       - name: Checkout current repository
         uses: actions/checkout@v3
