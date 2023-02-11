@@ -9,24 +9,23 @@ on:
 jobs:
   setup:
     runs-on: ubuntu-22.04
+    container:
+      image: broadinstitute/python-requests
     steps:
-      - name: checkout current repo
+      - name: Checkout current repository
         uses: actions/checkout@v3
-      
-      - name: install libraries in requirements.txt
-        run: |
-            pip install -r requirements.txt
-      
-      - name: execute python script
+   
+      - name: Execute python script
         run: python3 main.py
 
-      - name: commit files
+      - name: Commit files
         run: |
             git config --local user.email "action@github.com"
             git config --local user.name "GitHub Action"
             git add -A
             git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
-      - name: push changes
+      
+      - name: Push changes
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
