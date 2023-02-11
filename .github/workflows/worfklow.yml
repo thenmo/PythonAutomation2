@@ -3,7 +3,6 @@
 name: run main.py
 
 on:
-  push:
   schedule:
     - cron: '* * * * *'
 
